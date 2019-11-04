@@ -1,16 +1,13 @@
 <StackLayout class="form">
 
-    <!-- Option 1: An input with no label, and a bottom border -->
     <StackLayout class="input-field">
         <TextField hint="User name or email" autocorrect="false" [(ngModel)]="usernameField">
         </TextField>
-        <StackLayout class="hr-light"></StackLayout>
     </StackLayout>
 
     <StackLayout class="input-field">
         <TextField hint="Password" autocorrect="false" secure="true" [(ngModel)]="passwordField">
         </TextField>
-        <StackLayout class="hr-light"></StackLayout>
     </StackLayout>
 
     <Button id="loginButton" text="Login" (tap)="onLogin()"></Button>

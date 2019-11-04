@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
-import { Router } from '@angular/router';
+import { RouterExtensions } from 'nativescript-angular/router';
+
 
 @Component({
   selector: 'app-login-view',
@@ -15,7 +16,7 @@ export class LoginViewComponent implements OnInit {
 
   constructor(
     private page: Page,
-    private router: Router) {
+    private router: RouterExtensions) {
     page.actionBarHidden = true;
   }
 
@@ -24,6 +25,10 @@ export class LoginViewComponent implements OnInit {
   onLogin() {
     console.log(`login attempt: ${this.usernameField} - ${this.passwordField}`);
     this.debugLabel = `${this.usernameField} - ${this.passwordField}`;
-    this.router.navigate(['main']);
+    this.router.navigate(['main'], {
+      transition: {
+        name: 'fade',
+      },
+    });
   }
 }
