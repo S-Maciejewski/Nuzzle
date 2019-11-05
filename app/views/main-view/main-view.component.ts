@@ -20,7 +20,6 @@ export class MainViewComponent implements OnInit {
   }
 
   openDrawer() {
-    console.log('oppenig drawer')
     this.drawerService.toggleDrawerState();
   }
 

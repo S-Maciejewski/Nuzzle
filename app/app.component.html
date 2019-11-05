@@ -1,11 +1,12 @@
-<RadSideDrawer tkExampleTitle tkToggleNavButton>
-    <GridLayout tkDrawerContent rows="56, *" class="sideStackLayout">
+<RadSideDrawer>
+    <GridLayout tkDrawerContent [drawerTransition]="drawerTransition" rows="*" class="sideStackLayout" allowEdgeSwipe="true">
+        
         <StackLayout class="sideTitleStackLayout">
-            <Label text="Navigation Menu"></Label>
+            <Label text="Nuzzle menu"></Label>
         </StackLayout>
         <ScrollView row="1">
             <StackLayout class="sideStackLayout">
-                <Label text="Close Drawer" color="lightgray" padding="10" (tap)="onCloseDrawerTap()"></Label>
+                <!-- Menu options / styling? -->
             </StackLayout>
         </ScrollView>
     </GridLayout>

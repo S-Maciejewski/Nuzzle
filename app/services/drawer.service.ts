@@ -5,16 +5,11 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class DrawerService {
-
   drawerStateChange: Subject<any> = new Subject<any>();
-
-  drawerStateOpened = false;
 
   constructor() { }
 
   toggleDrawerState() {
-    console.log('drawer state change')
-    this.drawerStateOpened = !this.drawerStateOpened;
-    this.drawerStateChange.next(this.drawerStateOpened);
+    this.drawerStateChange.next();
   }
 }

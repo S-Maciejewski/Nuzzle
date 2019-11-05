@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild(RadSideDrawerComponent, { static: false }) drawerComponent: RadSideDrawerComponent;
@@ -22,24 +23,13 @@ export class AppComponent implements AfterViewInit {
     private drawerService: DrawerService,
   ) {
     this.page.actionBarHidden = true;
-    this.drawerSubscription = this.drawerService.drawerStateChange.subscribe(state => {
-      console.log('drawer opened?')
-      if (state) {
-        this.drawer.showDrawer();
-      }
+    this.drawerSubscription = this.drawerService.drawerStateChange.subscribe(() => {
+      this.drawer.showDrawer();
     });
   }
 
   ngAfterViewInit() {
     this.drawer = this.drawerComponent.sideDrawer;
     this._changeDetectionRef.detectChanges();
-  }
-
-  openDrawer() {
-    this.drawer.showDrawer();
-  }
-
-  onCloseDrawerTap() {
-    this.drawerService.toggleDrawerState();
   }
 }
