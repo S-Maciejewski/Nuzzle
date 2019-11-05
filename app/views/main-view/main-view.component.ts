@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
-import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from 'nativescript-ui-sidedrawer';
+import { DrawerService } from '../../services/drawer.service';
 
 @Component({
   selector: 'app-main-view',
@@ -9,11 +9,19 @@ import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from 'nat
 })
 export class MainViewComponent implements OnInit {
 
-  constructor(private page: Page) {
+  constructor(
+    private page: Page,
+    private drawerService: DrawerService,
+  ) {
     page.actionBarHidden = true;
   }
 
   ngOnInit() {
+  }
+
+  openDrawer() {
+    console.log('oppenig drawer')
+    this.drawerService.toggleDrawerState();
   }
 
 }
