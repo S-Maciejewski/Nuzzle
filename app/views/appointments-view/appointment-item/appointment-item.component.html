@@ -1,4 +1,4 @@
-<StackLayout id="wrapper">
+<StackLayout id="wrapper" (tap)="showAppointmentDetails()">
     <WrapLayout id="image">
         <Label id="image-description" text="Zdjęcie"></Label>
     </WrapLayout>
@@ -9,6 +9,5 @@
                 <Label class="details" text="Opis" ></Label>
                 <Label class="details" text="Cena"></Label>
         </FlexBoxLayout>
-        
     </StackLayout>
 </StackLayout>

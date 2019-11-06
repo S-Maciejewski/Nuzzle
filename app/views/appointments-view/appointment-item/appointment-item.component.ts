@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
   selector: 'app-appointment-item',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppointmentItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routerExtensions: RouterExtensions) { }
 
   ngOnInit() {
   }
 
+  showAppointmentDetails() {
+    this.routerExtensions.navigateByUrl("/appointment-details");
+  }
 }

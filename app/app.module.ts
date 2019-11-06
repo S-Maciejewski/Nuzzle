@@ -11,6 +11,7 @@ import { MainViewComponent } from './views/main-view/main-view.component';
 import { LoginViewComponent } from './views/login-view/login-view.component';
 import { AppointmentsViewComponent } from './views/appointments-view/appointments-view.component';
 import { AppointmentItemComponent } from './views/appointments-view/appointment-item/appointment-item.component';
+import { AppointmentDetailsComponent } from './views/appointments-view/appointment-details/appointment-details.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AppointmentItemComponent } from './views/appointments-view/appointment-
       LoginViewComponent,
       AppointmentsViewComponent,
       AppointmentItemComponent,
+      AppointmentDetailsComponent,
   ],
   imports: [
       NativeScriptModule,
