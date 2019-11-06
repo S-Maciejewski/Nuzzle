@@ -23,4 +23,8 @@ export class MainViewComponent implements OnInit {
     this.drawerService.toggleDrawerState();
   }
 
+  closeDrawer() {
+    this.drawerService.toggleDrawerState();
+  }
+
 }
