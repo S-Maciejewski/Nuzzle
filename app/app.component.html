@@ -7,7 +7,7 @@
 
             <ScrollView row="1">
                 <DockLayout class="sideStackLayout" height=100%>
-                    <StackLayout class="profile-short"  dock=top>
+                    <StackLayout class="profile-short" dock=top>
                         <StackLayout orientation="horizontal" marginBottom=10>
                             <StackLayout width=100 height=100 backgroundColor="gray" borderRadius=50% marginRight=10>
                             </StackLayout>
@@ -20,7 +20,7 @@
                     <Button text="Oferty pracy" dock=top [nsRouterLink]="['/appointments']"></Button>
                     <Button text="Moje ogłoszenia" dock=top [nsRouterLink]="['/my-appointments']"></Button>
                     <Button text="Wiadomości" dock=top [nsRouterLink]="['/messages']"></Button>
-                    <Button text="Wyloguj" dock=bottom [nsRouterLink]="['/login']" verticalAlignment=bottom></Button>
+                    <Button text="Wyloguj" dock=bottom (tap)="onLogout()" verticalAlignment=bottom></Button>
                 </DockLayout>
             </ScrollView>
         </StackLayout>

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
 import { RouterExtensions } from 'nativescript-angular/router';
+import { User } from '../../interfaces/authentication';
+import { AuthService } from '../../services/auth.service';
 
+const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 @Component({
   selector: 'app-login-view',
@@ -10,25 +13,37 @@ import { RouterExtensions } from 'nativescript-angular/router';
 })
 export class LoginViewComponent implements OnInit {
 
-  debugLabel = '';
+  errorMessage;
+  loginField = '';
   passwordField = '';
-  usernameField = '';
+  user: User;
 
   constructor(
     private page: Page,
-    private router: RouterExtensions) {
+    private router: RouterExtensions,
+    private auth: AuthService) {
     page.actionBarHidden = true;
   }
 
   ngOnInit() { }
 
   onLogin() {
-    console.log(`login attempt: ${this.usernameField} - ${this.passwordField}`);
-    this.debugLabel = `${this.usernameField} - ${this.passwordField}`;
-    this.router.navigate(['main'], {
-      transition: {
-        name: 'fade',
-      },
-    });
+    console.log(`login attempt: ${this.loginField} - ${this.passwordField}`);
+    this.user = { login: this.loginField, password: this.passwordField };
+    this.auth.login(this.user);
+    this.errorMessage = this.auth.getLoginErrorMessageValue();
+
+
+
+    // this.router.navigate(['main'], {
+    //   transition: {
+    //     name: 'fade',
+    //   },
+    // });
+  }
+
+  // We validate input manually, becouse Nativescript lacks good support for forms
+  isFormValid() {
+    return this.loginField && this.passwordField && emailRegex.test(this.loginField) && this.passwordField !== '';
   }
 }

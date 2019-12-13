@@ -5,6 +5,7 @@ import { Page } from 'tns-core-modules/ui/page/page';
 import { RadSideDrawerComponent } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
 import { DrawerService } from './services/drawer.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,7 @@ export class AppComponent implements AfterViewInit {
     private page: Page,
     private _changeDetectionRef: ChangeDetectorRef,
     private drawerService: DrawerService,
-  ) {
+    private auth: AuthService) {
     this.page.actionBarHidden = true;
     this.drawerSubscription = this.drawerService.drawerStateChange.subscribe(() => {
       this.drawer.showDrawer();
@@ -31,5 +32,10 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.drawer = this.drawerComponent.sideDrawer;
     this._changeDetectionRef.detectChanges();
+  }
+
+  onLogout() {
+    this.auth.logout();
+    this.routerExtensions.navigateByUrl('/login');
   }
 }

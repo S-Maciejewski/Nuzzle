@@ -1,16 +1,28 @@
 import { Injectable } from '@angular/core';
 import * as appSettings from 'tns-core-modules/application-settings';
 
+const keys = {
+  token: 'token',
+};
+
 @Injectable({
   providedIn: 'root',
 })
 export class StoreService {
 
-  constructor() { 
-    console.log(appSettings.hasKey('token'));
+  constructor() {
+  }
 
-    // appSettings.setString('token', 'testToken');
+  setToken(token: string) {
+    appSettings.setString(keys.token, token);
+    console.log('token set to', this.getToken())
+  }
 
-    console.log(appSettings.getString('token'));
+  removeToken() {
+    appSettings.remove(keys.token);
+  }
+
+  getToken() {
+    return appSettings.getString(keys.token);
   }
 }

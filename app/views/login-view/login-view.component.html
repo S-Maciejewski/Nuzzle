@@ -1,7 +1,7 @@
 <StackLayout class="form">
 
     <StackLayout class="input-field">
-        <TextField hint="User name or email" autocorrect="false" [(ngModel)]="usernameField">
+        <TextField hint="Email" autocorrect="false" keyboardType="email" [(ngModel)]="loginField">
         </TextField>
     </StackLayout>
 
@@ -10,6 +10,7 @@
         </TextField>
     </StackLayout>
 
+    <!-- <Button id="loginButton" text="Login" (tap)="onLogin()" isEnabled="{{isFormValid()}}"></Button> -->
     <Button id="loginButton" text="Login" (tap)="onLogin()"></Button>
 
     <label [text]="debugLabel"></label>
