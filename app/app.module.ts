@@ -14,27 +14,31 @@ import { AppointmentItemComponent } from './views/appointments-view/appointment-
 import { AppointmentDetailsComponent } from './views/appointments-view/appointment-details/appointment-details.component';
 import { MyAppointmentsViewComponent } from './views/my-appointments-view/my-appointments-view.component';
 import { NewAppointmentComponent } from './views/my-appointments-view/new-appointment/new-appointment.component';
+import { LoginProxyComponent } from './views/login-view/login-proxy/login-proxy.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-      AppComponent,
-      MainViewComponent,
-      LoginViewComponent,
-      AppointmentsViewComponent,
-      AppointmentItemComponent,
-      AppointmentDetailsComponent,
-      MyAppointmentsViewComponent,
-      NewAppointmentComponent,
+    AppComponent,
+    MainViewComponent,
+    LoginViewComponent,
+    LoginProxyComponent,
+    AppointmentsViewComponent,
+    AppointmentItemComponent,
+    AppointmentDetailsComponent,
+    MyAppointmentsViewComponent,
+    NewAppointmentComponent,
   ],
   imports: [
-      NativeScriptModule,
-      AppRoutingModule,
-      NativeScriptFormsModule,
-      NativeScriptHttpClientModule,
-      NativeScriptUISideDrawerModule,
+    NativeScriptModule,
+    AppRoutingModule,
+    NativeScriptFormsModule,
+    NativeScriptHttpClientModule,
+    NativeScriptUISideDrawerModule,
+    HttpClientModule,
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
 })
-export class AppModule {}
+export class AppModule { }
 

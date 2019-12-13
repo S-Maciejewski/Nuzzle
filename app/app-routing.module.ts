@@ -7,16 +7,18 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
 import { AppointmentsViewComponent } from './views/appointments-view/appointments-view.component';
 import { AppointmentDetailsComponent } from './views/appointments-view/appointment-details/appointment-details.component';
 import { MyAppointmentsViewComponent } from './views/my-appointments-view/my-appointments-view.component'
-import { NewAppointmentComponent } from './views/my-appointments-view/new-appointment/new-appointment.component' 
+import { NewAppointmentComponent } from './views/my-appointments-view/new-appointment/new-appointment.component'
+import { LoginProxyComponent } from './views/login-view/login-proxy/login-proxy.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/my-appointments', pathMatch: 'full' },
+  { path: '', redirectTo: '/login-proxy', pathMatch: 'full' },
   { path: 'main', component: MainViewComponent },
   { path: 'login', component: LoginViewComponent },
-  { path: 'appointments', component: AppointmentsViewComponent},
-  { path: 'appointment-details', component: AppointmentDetailsComponent},
-  { path: 'my-appointments', component: MyAppointmentsViewComponent},
-  { path: 'new-appointment', component: NewAppointmentComponent}
+  { path: 'login-proxy', component: LoginProxyComponent },
+  { path: 'appointments', component: AppointmentsViewComponent },
+  { path: 'appointment-details', component: AppointmentDetailsComponent },
+  { path: 'my-appointments', component: MyAppointmentsViewComponent },
+  { path: 'new-appointment', component: NewAppointmentComponent },
 
 ];
 
