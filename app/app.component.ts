@@ -31,11 +31,19 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.drawer = this.drawerComponent.sideDrawer;
+    this.auth.getLoggedIn().subscribe(isLoggedIn => {
+      if (!isLoggedIn) {
+        this.drawer.gesturesEnabled = false;
+      } else {
+        this.drawer.gesturesEnabled = true;
+      }
+    });
     this._changeDetectionRef.detectChanges();
   }
 
   onLogout() {
     this.auth.logout();
+    this.drawer.toggleDrawerState();
     this.routerExtensions.navigateByUrl('/login');
   }
 }

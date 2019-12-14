@@ -31,11 +31,11 @@ export class LoginViewComponent implements OnInit {
     this.user = { login: this.loginField, password: this.passwordField };
     this.auth.login(this.user);
 
-    // this.router.navigate(['main'], {
-    //   transition: {
-    //     name: 'fade',
-    //   },
-    // });
+    this.router.navigate(['main'], {
+      transition: {
+        name: 'fade',
+      },
+    });
   }
 
   // We validate input manually, becouse Nativescript lacks good support for forms

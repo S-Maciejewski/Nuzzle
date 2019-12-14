@@ -2,28 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { StoreService } from '../../../services/store.service';
+import { AuthService } from '../../../services/auth.service';
 
 
 @Component({
     selector: 'app-login-proxy',
-    template: '<Label text="Login proxy works"></Label>',
+    template: '',
     styles: [],
 })
 export class LoginProxyComponent implements OnInit {
 
-    debugLabel = '';
-    passwordField = '';
-    usernameField = '';
-
     constructor(
         private page: Page,
         private router: RouterExtensions,
-        private store: StoreService) {
+        private store: StoreService,
+        private auth: AuthService) {
         page.actionBarHidden = true;
+        if (store.getToken()) {
+            auth.setLoggedIn(true);
+            router.navigateByUrl('/main');
+        } else {
+            auth.setLoggedIn(false);
+            router.navigateByUrl('/login');
+        }
     }
 
-    ngOnInit() {
-        console.log('login proxy working!');
-    }
+    ngOnInit() { }
 
 }

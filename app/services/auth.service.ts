@@ -23,8 +23,6 @@ export class AuthService {
     private store: StoreService) { }
 
   login(user: User) {
-    console.log('LOGGING IN USER:', user.login, user.password);
-
     return this.http.post(`${apiAddress}/login`, user, httpOptions)
       .subscribe((res: Authorization) => {
         if (res && res.success) {
@@ -40,10 +38,17 @@ export class AuthService {
   logout() {
     this.loggedIn.next(false);
     this.store.removeToken();
-    console.log('user logged out');
   }
 
   getLoginErrorMessage() {
     return this.loginErrorMessage;
+  }
+
+  getLoggedIn() {
+    return this.loggedIn;
+  }
+
+  setLoggedIn(isLoggedIn: boolean) {
+    this.loggedIn.next(isLoggedIn);
   }
 }

@@ -15,7 +15,6 @@ export class StoreService {
 
   setToken(token: string) {
     appSettings.setString(keys.token, token);
-    console.log('token set to', this.getToken())
   }
 
   removeToken() {
