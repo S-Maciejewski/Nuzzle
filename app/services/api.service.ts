@@ -5,7 +5,6 @@ import { AuthService } from './auth.service';
 import { StoreService } from './store.service';
 
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -31,4 +30,7 @@ export class ApiService {
     return this.http.get(`${apiAddress}/user`, this.httpOptions);
   }
 
+  getOfferList() {
+    return this.http.get(`${apiAddress}/offerList`, this.httpOptions);
+  }
 }

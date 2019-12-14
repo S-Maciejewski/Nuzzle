@@ -1,11 +1,11 @@
 <ScrollView>
-    <StackLayout>
+    <StackLayout *ngIf="item">
         <StackLayout orientation="horizontal">
-            <Image backgroundColor="red" width="100" height="100"></Image>
-            <Label text="Opis ogłoszenia"></Label>
+            <Image width="100" height="100" backgroundImage="url($(item.ImageURL))"></Image>
+            <Label text="{{item.Description}}"></Label>
         </StackLayout>
         <StackLayout height="300" backgroundColor="yellow">
-            <Label text="Pozostałe detale"></Label>
+            <Label text="Pozostałe detale - TODO wyciągnąć item (razem ze zdjęciem tu i w appointment item"></Label>
         </StackLayout>
         <Button text="Wynajmij" [nsRouterLink]="['/appointments']"></Button>
     </StackLayout>

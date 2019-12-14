@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as appSettings from 'tns-core-modules/application-settings';
+import { OfferItem } from '../interfaces/OfferItem';
 
 const keys = {
   token: 'token',
@@ -9,6 +10,8 @@ const keys = {
   providedIn: 'root',
 })
 export class StoreService {
+  // Storing items should be implemented as rxjs Action -> Effect store if we proceed to production
+  offerItem: OfferItem;
 
   constructor() {
   }
@@ -23,5 +26,13 @@ export class StoreService {
 
   getToken() {
     return appSettings.getString(keys.token);
+  }
+
+  setTempStoreOfferItem(item: OfferItem) {
+    this.offerItem = item;
+  }
+
+  getTempStoreOfferItem() {
+    return this.offerItem;
   }
 }
