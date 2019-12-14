@@ -16,33 +16,34 @@ const httpOptions = {
 })
 export class AuthService {
   private loginErrorMessage: BehaviorSubject<string> = new BehaviorSubject<string>(undefined);
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(undefined);
 
   constructor(
     private http: HttpClient,
     private store: StoreService) { }
 
   login(user: User) {
-    console.log('LOGGING IN USER:', user.login, user.password)
+    console.log('LOGGING IN USER:', user.login, user.password);
+
     return this.http.post(`${apiAddress}/login`, user, httpOptions)
       .subscribe((res: Authorization) => {
-        console.log('successfully subscribed');
+        if (res && res.success) {
+          this.loginErrorMessage.next(undefined);
+          this.loggedIn.next(true);
+          this.store.setToken(res.message);
+        } else {
           this.loginErrorMessage.next(res.message);
-
-        // if (res && res.success) {
-        //   this.loginErrorMessage.next(undefined);
-        //   this.store.setToken(res.message);
-        // } else {
-        //   this.loginErrorMessage.next(res.message);
-        // }
+        }
       });
   }
 
   logout() {
+    this.loggedIn.next(false);
     this.store.removeToken();
     console.log('user logged out');
   }
 
-  getLoginErrorMessageValue() {
-    return this.loginErrorMessage.value;
+  getLoginErrorMessage() {
+    return this.loginErrorMessage;
   }
 }

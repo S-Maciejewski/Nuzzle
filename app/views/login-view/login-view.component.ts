@@ -12,7 +12,6 @@ const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\
   styleUrls: ['./login-view.component.scss'],
 })
 export class LoginViewComponent implements OnInit {
-
   errorMessage;
   loginField = '';
   passwordField = '';
@@ -23,17 +22,14 @@ export class LoginViewComponent implements OnInit {
     private router: RouterExtensions,
     private auth: AuthService) {
     page.actionBarHidden = true;
+    this.auth.getLoginErrorMessage().subscribe(err => this.errorMessage = err);
   }
 
   ngOnInit() { }
 
   onLogin() {
-    console.log(`login attempt: ${this.loginField} - ${this.passwordField}`);
     this.user = { login: this.loginField, password: this.passwordField };
     this.auth.login(this.user);
-    this.errorMessage = this.auth.getLoginErrorMessageValue();
-
-
 
     // this.router.navigate(['main'], {
     //   transition: {
