@@ -23,6 +23,15 @@ export class LoginViewComponent implements OnInit {
     private auth: AuthService) {
     page.actionBarHidden = true;
     this.auth.getLoginErrorMessage().subscribe(err => this.errorMessage = err);
+    this.auth.getLoggedIn().subscribe(isLoggedIn => {
+      if (isLoggedIn) {
+        this.router.navigate(['main'], {
+          transition: {
+            name: 'fade',
+          },
+        });
+      }
+    });
   }
 
   ngOnInit() { }
@@ -30,12 +39,6 @@ export class LoginViewComponent implements OnInit {
   onLogin() {
     this.user = { login: this.loginField, password: this.passwordField };
     this.auth.login(this.user);
-
-    this.router.navigate(['main'], {
-      transition: {
-        name: 'fade',
-      },
-    });
   }
 
   // We validate input manually, becouse Nativescript lacks good support for forms
