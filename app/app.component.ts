@@ -6,6 +6,8 @@ import { RadSideDrawerComponent } from 'nativescript-ui-sidedrawer/angular/side-
 import { DrawerService } from './services/drawer.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from './services/auth.service';
+import { User } from './interfaces/User';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -16,13 +18,15 @@ export class AppComponent implements AfterViewInit {
   @ViewChild(RadSideDrawerComponent, { static: false }) drawerComponent: RadSideDrawerComponent;
   drawer: RadSideDrawer;
   drawerSubscription: Subscription;
+  user: User;
 
   constructor(
     private routerExtensions: RouterExtensions,
     private page: Page,
     private _changeDetectionRef: ChangeDetectorRef,
     private drawerService: DrawerService,
-    private auth: AuthService) {
+    private auth: AuthService,
+    private api: ApiService) {
     this.page.actionBarHidden = true;
     this.drawerSubscription = this.drawerService.drawerStateChange.subscribe(() => {
       this.drawer.showDrawer();
@@ -36,6 +40,10 @@ export class AppComponent implements AfterViewInit {
         this.drawer.gesturesEnabled = false;
       } else {
         this.drawer.gesturesEnabled = true;
+        this.api.getCurrentUser().subscribe(data => {
+          this.user = data[0];
+          console.log('Current user:', this.user);
+        });
       }
     });
     this._changeDetectionRef.detectChanges();

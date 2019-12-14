@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User, Authorization } from '../interfaces/authentication';
+import { UserLogin, Authorization } from '../interfaces/authentication';
 import { apiAddress } from '../environments/environment';
 import { BehaviorSubject } from 'rxjs';
 import { StoreService } from './store.service';
@@ -22,7 +22,7 @@ export class AuthService {
     private http: HttpClient,
     private store: StoreService) { }
 
-  login(user: User) {
+  login(user: UserLogin) {
     return this.http.post(`${apiAddress}/login`, user, httpOptions)
       .subscribe((res: Authorization) => {
         if (res && res.success) {

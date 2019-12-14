@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { User } from '../../interfaces/authentication';
+import { UserLogin } from '../../interfaces/authentication';
 import { AuthService } from '../../services/auth.service';
 
 const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -15,7 +15,7 @@ export class LoginViewComponent implements OnInit {
   errorMessage;
   loginField = '';
   passwordField = '';
-  user: User;
+  userLogin: UserLogin;
 
   constructor(
     private page: Page,
@@ -37,8 +37,8 @@ export class LoginViewComponent implements OnInit {
   ngOnInit() { }
 
   onLogin() {
-    this.user = { login: this.loginField, password: this.passwordField };
-    this.auth.login(this.user);
+    this.userLogin = { login: this.loginField, password: this.passwordField };
+    this.auth.login(this.userLogin);
   }
 
   // We validate input manually, becouse Nativescript lacks good support for forms
