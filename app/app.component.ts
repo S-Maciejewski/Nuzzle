@@ -38,6 +38,7 @@ export class AppComponent implements AfterViewInit {
     this.auth.getLoggedIn().subscribe(isLoggedIn => {
       if (!isLoggedIn) {
         this.drawer.gesturesEnabled = false;
+        this.user = undefined;
       } else {
         this.drawer.gesturesEnabled = true;
         this.api.getCurrentUser().subscribe(data => {

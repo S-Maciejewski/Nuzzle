@@ -26,9 +26,9 @@ export class AuthService {
     return this.http.post(`${apiAddress}/login`, user, httpOptions)
       .subscribe((res: Authorization) => {
         if (res && res.success) {
-          this.loginErrorMessage.next(undefined);
-          this.loggedIn.next(true);
           this.store.setToken(res.message);
+          this.loginErrorMessage.next(undefined);
+          this.setLoggedIn(true);
         } else {
           this.loginErrorMessage.next(res.message);
         }
@@ -36,8 +36,8 @@ export class AuthService {
   }
 
   logout() {
-    this.loggedIn.next(false);
     this.store.removeToken();
+    this.setLoggedIn(false);
   }
 
   getLoginErrorMessage() {
