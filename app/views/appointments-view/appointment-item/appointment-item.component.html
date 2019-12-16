@@ -1,9 +1,6 @@
 <StackLayout id="wrapper" (tap)="showAppointmentDetails(item)" *ngIf="item">
-    <!-- <WrapLayout  *ngIf="item">
-        <Label id="image-description" text="Zdjęcie"></Label>
-    </WrapLayout> -->
     <StackLayout height="100%"  class="m-15" backgroundColor="lightgray" loaded="containerLoaded">
-        <Image id="image" src="res://avatar" stretch="aspectFill"></Image> 
+        <Image *ngIf="item.ImageURL && item.ImageURL != null" id="image" src="{{item.ImageURL}}" stretch="aspectFill"></Image> 
     </StackLayout>
     <StackLayout id="description" orientation="vertical" backgroundColor="gray">
         <Label class="title" text="{{item.Label}}" backgroundColor="blue"></Label>
