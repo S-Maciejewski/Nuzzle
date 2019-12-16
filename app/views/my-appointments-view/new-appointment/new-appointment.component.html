@@ -1,3 +1,50 @@
 <StackLayout>
-    <Label text="Wszystkie potrzebne informacje o ogłoszeniu"></Label>
+    <Label text="Dodaj nowe ogłoszenie"></Label>
+
+    <!-- <StackLayout *ngIf="types && addressesLabels">
+        <RadDataForm tkExampleTitle tkToggleNavButton [source]="offer" [metadata]="offerMetadata">
+        </RadDataForm>
+        <Button text="Wyślij ogłoszenie" (onTap)="commitOffer()"></Button>
+    </StackLayout> -->
+
+    <StackLayout *ngIf="types && addressesLabels">
+        <RadDataForm tkExampleTitle tkToggleNavButton [source]="offer1">
+            <TKEntityProperty tkDataFormProperty name="Label" displayName="Tytuł" index="1"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="TypeID" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="Type" displayName="Typ ogłoszenia" index="2" [valuesProvider]="types">
+                <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="AddressID" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="Address" displayName="Adres" index="3" valuesProvider= "{{ addressesLabels }}">
+                <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+            </TKEntityProperty>
+        </RadDataForm>
+
+        <Button text="Dodaj adres" (onTap)="addAddress()" *ngIf="!showNewAddressForm"></Button>
+
+        <StackLayout *ngIf="showNewAddressForm">
+            <RadDataForm tkExampleTitle tkToggleNavButton [source]="addressForm">
+                <TKEntityProperty tkDataFormProperty name="Label" displayName="Etykieta" index="1"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="Address" displayName="Adres" index="2"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="LongitudePos" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="LatitudePos" hidden="true"></TKEntityProperty>
+            </RadDataForm>
+            <StackLayout orientation="horizontal">
+                <Button text="Potwierdź" (onTap)="confirmAddingAddress()" width="50%"></Button>
+                <Button text="Anuluj" (onTap)="addAddress()" width="50%"></Button>
+            </StackLayout>
+        </StackLayout>        
+
+        <RadDataForm tkExampleTitle tkToggleNavButton [source]="offer2">
+            <TKEntityProperty tkDataFormProperty name="Description" displayName="Opis ogłoszenia" index="1">
+                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText"></TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="ImageURL" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="Date" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="Price" displayName="Cena" index="2">
+                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
+            </TKEntityProperty>
+        </RadDataForm>
+        <Button text="Wyślij ogłoszenie" (onTap)="commitOffer()" [nsRouterLink]="['/my-appointments']"></Button>
+    </StackLayout>
 </StackLayout>

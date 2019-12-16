@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as appSettings from 'tns-core-modules/application-settings';
-import { OfferItem } from '../interfaces/OfferItem';
+import { OfferItem } from '../interfaces/Offer';
 
 const keys = {
   token: 'token',

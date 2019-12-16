@@ -13,3 +13,20 @@ export interface OfferItem {
     Surname: string;
     ImageURL: string;
 }
+
+export interface OfferTypes {
+    ID: number;
+    Type: string;
+}
+
+export interface NewOfferItem {
+    TypeID: number;
+    Type: string;
+    Label: string;
+    Description: string;
+    AddressID: number;
+    Address: string;
+    Price: number;
+    ImageURL: string;
+    Date: string;
+}
