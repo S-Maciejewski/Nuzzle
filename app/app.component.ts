@@ -50,6 +50,21 @@ export class AppComponent implements AfterViewInit {
     this._changeDetectionRef.detectChanges();
   }
 
+  onAppointmentsTap() {
+    this.drawer.toggleDrawerState();
+    this.routerExtensions.navigateByUrl('/appointments')
+  }
+
+  onMyAppointmentsTap() {
+    this.drawer.toggleDrawerState();
+    this.routerExtensions.navigateByUrl('/my-appointments')
+  }
+
+  onMessagesTap() {
+    this.drawer.toggleDrawerState();
+    this.routerExtensions.navigateByUrl('/messages')
+  }
+
   onLogout() {
     this.auth.logout();
     this.drawer.toggleDrawerState();
