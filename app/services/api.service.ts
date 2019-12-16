@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiAddress } from '../environments/environment';
 import { AuthService } from './auth.service';
 import { StoreService } from './store.service';
+import { NewOfferItem } from '../interfaces/Offer';
 
 
 @Injectable({
@@ -41,5 +42,21 @@ export class ApiService {
 
   getMyOfferList() {
     return this.http.get(`${apiAddress}/myOfferList`, this.httpOptions);
+  }
+
+  getOfferTypes() {
+    return this.http.get(`${apiAddress}/offerType`, this.httpOptions);
+  }
+
+  getMyAddresses() {
+    return this.http.get(`${apiAddress}/address`, this.httpOptions);
+  }
+
+  postOffer(offer: NewOfferItem) {
+    return this.http.post(`${apiAddress}/offer`, offer, this.httpOptions);
+  }
+
+  postAddress(address) {
+    return this.http.post(`${apiAddress}/address`, address, this.httpOptions);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { OfferItem } from '../../../interfaces/OfferItem';
+import { OfferItem } from '../../../interfaces/Offer';
 import { StoreService } from '../../../services/store.service';
 import { Page } from 'tns-core-modules/ui/page/page';
 
