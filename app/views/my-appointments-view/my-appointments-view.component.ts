@@ -3,7 +3,7 @@ import { registerElement } from 'nativescript-angular/element-registry';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { ApiService } from '../../services/api.service';
 import { Page } from 'tns-core-modules/ui/page/page';
-import { OfferItem } from '../../interfaces/OfferItem';
+import { OfferItem } from '../../interfaces/Offer';
 
 registerElement(
   'Fab',
@@ -23,9 +23,9 @@ export class MyAppointmentsViewComponent implements OnInit {
     private api: ApiService,
     private page: Page) {
     this.page.actionBarHidden = true;
-    api.getMyOfferList().subscribe((data: OfferItem[]) => this.offerItems = data);
   }
   ngOnInit() {
+    this.api.getMyOfferList().subscribe((data: OfferItem[]) => this.offerItems = data);
   }
 
   newAppointment() {

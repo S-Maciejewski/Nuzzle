@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OfferItem } from '../../../interfaces/OfferItem';
+import { OfferItem } from '../../../interfaces/Offer';
 import { StoreService } from '../../../services/store.service';
 import { Page } from 'tns-core-modules/ui/page/page';
 

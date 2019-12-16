@@ -9,8 +9,8 @@
                 <DockLayout class="sideStackLayout" height=100%>
                     <StackLayout class="profile-short" dock=top>
                         <StackLayout orientation="horizontal" marginBottom=10>
-                            <StackLayout *ngIf="user && user.PhotoURL" class="profile-pic" width=100 height=100
-                                backgroundImage="url($(user.PhotoURL))" borderRadius=50% marginRight=10>
+                            <StackLayout *ngIf="user && user.PhotoURL && user.PhotoURL != null" class="profile-pic" width=100 height=100
+                                backgroundImage="{{user.PhotoURL}}" borderRadius=50% marginRight=10>
                             </StackLayout>
                             <StackLayout>
                                 <Label *ngIf="user" text="{{user.Name}} {{user.Surname}}"></Label>
@@ -18,9 +18,9 @@
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>
-                    <Button text="Oferty pracy" dock=top [nsRouterLink]="['/appointments']"></Button>
-                    <Button text="Moje ogłoszenia" dock=top [nsRouterLink]="['/my-appointments']"></Button>
-                    <Button text="Wiadomości" dock=top [nsRouterLink]="['/messages']"></Button>
+                    <Button text="Oferty pracy" dock=top (tap)="onAppointmentsTap()"></Button>
+                    <Button text="Moje ogłoszenia" dock=top (tap)="onMyAppointmentsTap()"></Button>
+                    <Button text="Wiadomości" dock=top (tap)="onMessagesTap()"></Button>
                     <Button text="Wyloguj" dock=bottom (tap)="onLogout()" verticalAlignment=bottom></Button>
                 </DockLayout>
             </ScrollView>

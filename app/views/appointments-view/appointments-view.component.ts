@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OfferItem } from '../../interfaces/OfferItem';
+import { OfferItem } from '../../interfaces/Offer';
 import { ApiService } from '../../services/api.service';
 import { Page } from 'tns-core-modules/ui/page/page';
 
@@ -15,7 +15,7 @@ export class AppointmentsViewComponent implements OnInit {
     private api: ApiService,
     private page: Page) {
       this.page.actionBarHidden = true;
-    api.getOfferList().subscribe((data: OfferItem[]) => this.offerItems = data);
+      api.getOfferList().subscribe((data: OfferItem[]) => this.offerItems = data);
   }
 
   ngOnInit() {
