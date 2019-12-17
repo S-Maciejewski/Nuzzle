@@ -1,1 +1,19 @@
-/* Add mobile styles for the component here.  */
+StackLayout {
+    display: flex;
+    flex-direction: column;
+    background-color: #e1f5fe;
+
+    .ad-space {
+        height: 20%;
+        width: 100%;
+        text-align: center;
+        word-wrap: normal;
+        vertical-align: middle;
+        background-color: #03a9f4;
+    }
+
+    ScrollView {
+        width: 100%;
+        height: 80%;
+    }
+}

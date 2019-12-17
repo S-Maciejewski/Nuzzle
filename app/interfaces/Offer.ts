@@ -12,6 +12,8 @@ export interface OfferItem {
     Name: string;
     Surname: string;
     ImageURL: string;
+    Price: number;
+    PhoneNumber: string;
 }
 
 export interface OfferTypes {

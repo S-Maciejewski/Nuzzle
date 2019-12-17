@@ -1,5 +1,13 @@
-<ScrollView>
-    <StackLayout >
-        <app-appointment-item *ngFor="let item of offerItems" [item]="item"></app-appointment-item>
+<StackLayout>
+
+    <ScrollView>
+        <StackLayout class="list">
+            <app-appointment-item *ngFor="let item of offerItems" [item]="item"></app-appointment-item>
+        </StackLayout>
+    </ScrollView>
+
+    <StackLayout class="ad-space">
+        <Label text="Przestrzeń na twoją reklamę! Skontaktuj się z nami!" textWrap="true"></Label>
     </StackLayout>
-</ScrollView>
+</StackLayout>
+
