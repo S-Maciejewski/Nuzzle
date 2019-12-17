@@ -4,6 +4,8 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { ApiService } from '../../services/api.service';
 import { Page } from 'tns-core-modules/ui/page/page';
 import { OfferItem } from '../../interfaces/Offer';
+import { DrawerService } from '../../services/drawer.service';
+import { SwipeGestureEventData } from 'tns-core-modules/ui/gestures/gestures';
 
 registerElement(
   'Fab',
@@ -20,6 +22,7 @@ export class MyAppointmentsViewComponent implements OnInit {
 
   constructor(
     private routerExtensions: RouterExtensions,
+    private drawerService: DrawerService,
     private api: ApiService,
     private page: Page) {
     this.page.actionBarHidden = true;
@@ -32,5 +35,9 @@ export class MyAppointmentsViewComponent implements OnInit {
     this.routerExtensions.navigateByUrl('/new-appointment');
   }
 
-
+  onSwipe(args: SwipeGestureEventData) {
+    if (args.direction === 1) {
+      this.drawerService.toggleDrawerState();
+    }
+  }
 }

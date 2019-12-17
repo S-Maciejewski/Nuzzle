@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
 import { DrawerService } from '../../services/drawer.service';
+import { SwipeGestureEventData } from 'tns-core-modules/ui/gestures/gestures';
 
 @Component({
   selector: 'app-main-view',
@@ -25,6 +26,12 @@ export class MainViewComponent implements OnInit {
 
   closeDrawer() {
     this.drawerService.toggleDrawerState();
+  }
+
+  onSwipe(args: SwipeGestureEventData) {
+    if (args.direction === 1) {
+      this.drawerService.toggleDrawerState();
+    }
   }
 
 }

@@ -1,27 +1,22 @@
 <RadSideDrawer>
-    <GridLayout tkDrawerContent [drawerTransition]="drawerTransition" rows="*" class="sideStackLayout"
-        allowEdgeSwipe="true">
-
+    <GridLayout tkDrawerContent rows="*" class="sideStackLayout" allowEdgeSwipe="true">
         <StackLayout class="sideTitleStackLayout" padding=10>
-            <Label text="Nuzzle" fontSize=20 textAlignment=center marginBottom=10></Label>
-
+            <Label class="app-name" text="Nuzzle"></Label>
             <ScrollView row="1">
                 <DockLayout class="sideStackLayout" height=100%>
-                    <StackLayout class="profile-short" dock=top>
-                        <StackLayout orientation="horizontal" marginBottom=10>
-                            <StackLayout *ngIf="user && user.PhotoURL && user.PhotoURL != null" class="profile-pic" width=100 height=100
-                                backgroundImage="{{user.PhotoURL}}" borderRadius=50% marginRight=10>
-                            </StackLayout>
-                            <StackLayout>
-                                <Label *ngIf="user" text="{{user.Name}} {{user.Surname}}"></Label>
-                                <Button text="Edytuj profil" [nsRouterLink]="['/login-proxy']"></Button>
-                            </StackLayout>
-                        </StackLayout>
+                    <StackLayout class="profile-box" dock=top>
+                        <Image class="profile-pic" borderRadius="100%" src={{user.PhotoURL}}
+                            *ngIf="user && user.PhotoURL && user.PhotoURL != null" stretch="aspectFill"></Image>
+                        <Label class="user-name" *ngIf="user" text="{{user.Name}} {{user.Surname}}"></Label>
+                        <Button class="drawer-button" text="Edytuj profil" [nsRouterLink]="['/login-proxy']"></Button>   
+                    
                     </StackLayout>
-                    <Button text="Oferty pracy" dock=top (tap)="onAppointmentsTap()"></Button>
-                    <Button text="Moje ogłoszenia" dock=top (tap)="onMyAppointmentsTap()"></Button>
-                    <Button text="Wiadomości" dock=top (tap)="onMessagesTap()"></Button>
-                    <Button text="Wyloguj" dock=bottom (tap)="onLogout()" verticalAlignment=bottom></Button>
+                    <Button class="drawer-button" text="Oferty pracy" dock=top (tap)="onAppointmentsTap()"></Button>
+                    <Button class="drawer-button" text="Moje ogłoszenia" dock=top
+                        (tap)="onMyAppointmentsTap()"></Button>
+                    <Button class="drawer-button" text="Wiadomości" dock=top (tap)="onMessagesTap()"></Button>
+                    <Button class="drawer-button" text="Wyloguj" dock=bottom (tap)="onLogout()"
+                        verticalAlignment=bottom></Button>
                 </DockLayout>
             </ScrollView>
         </StackLayout>

@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from './services/auth.service';
 import { User } from './interfaces/User';
 import { ApiService } from './services/api.service';
+import { SwipeGestureEventData } from 'tns-core-modules/ui/gestures/gestures';
 
 @Component({
   selector: 'app-root',

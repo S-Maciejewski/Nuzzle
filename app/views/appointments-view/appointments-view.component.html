@@ -1,5 +1,5 @@
 <ScrollView>
-    <StackLayout >
+    <StackLayout (swipe)="onSwipe($event)">
         <app-appointment-item *ngFor="let item of offerItems" [item]="item"></app-appointment-item>
     </StackLayout>
 </ScrollView>

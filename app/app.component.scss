@@ -1,9 +1,39 @@
 .sideStackLayout {
-    background-color: white;
+  background-color: #1565c0
 }
 
 .sideTitleStackLayout {
-    color: black;
-    font: bold;
-    z-index: 1;
+  color: black;
+  font: bold;
+  z-index: 1;
+}
+
+.app-name {
+  font-size: 40;
+  height: 80;
+  text-align: center;
+  color: white;
+}
+
+  .profile-pic {
+    width: 150;
+    height:150;
+  }
+
+
+.user-name {
+    font-size: 20;
+    color: white;
+    text-align: center;
+}
+
+.drawer-button {
+    border-style: solid;
+    border-width: 4px;
+    border-color: #c79100;
+    border-radius: 25px;
+    background-color: #ffc107;
+    width: 100%;
+    height: 50;
+    margin-top: 40px;
 }

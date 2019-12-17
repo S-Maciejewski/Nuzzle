@@ -1,2 +1,4 @@
-<Label text="Main view works"></Label>
-<button (tap)="openDrawer()" text="Open drawer"></button>
+<StackLayout (swipe)="onSwipe($event)">
+    <Label text="Main view works"></Label>
+    <button (tap)="openDrawer()" text="Open drawer"></button>
+</StackLayout>
