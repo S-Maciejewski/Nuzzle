@@ -20,7 +20,7 @@ export class LoginProxyComponent implements OnInit {
         page.actionBarHidden = true;
         if (store.getToken()) {
             auth.setLoggedIn(true);
-            router.navigateByUrl('/main');
+            router.navigateByUrl('/appointments');
         } else {
             auth.setLoggedIn(false);
             router.navigateByUrl('/login');

@@ -25,7 +25,7 @@ export class LoginViewComponent implements OnInit {
     this.auth.getLoginErrorMessage().subscribe(err => this.errorMessage = err);
     this.auth.getLoggedIn().subscribe(isLoggedIn => {
       if (isLoggedIn) {
-        this.router.navigate(['main'], {
+        this.router.navigate(['appointments'], {
           transition: {
             name: 'fade',
           },

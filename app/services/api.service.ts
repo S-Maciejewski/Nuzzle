@@ -22,17 +22,17 @@ export class ApiService {
     private store: StoreService) {
     auth.getLoggedIn().subscribe(isLoggedIn => {
       if (isLoggedIn) {
-        this.httpOptions = { headers: this.httpOptions.headers.append('Authorization', store.getToken()) };
-        // this.setAuthHeader(store.getToken());
+        this.httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': this.store.getToken(),
+          }),
+        };
       }
     });
   }
 
-  // Some concurrency problem after logging out -> loggin in again:
-  // Seems like GET /user gets to server without Authorization header somehow, which returns 500
-  // Problem with ApplicationSettings storage?
   getCurrentUser() {
-    console.log('AUTH HEADER:', this.httpOptions.headers.get('Authorization'));
     return this.http.get(`${apiAddress}/user`, this.httpOptions);
   }
 
