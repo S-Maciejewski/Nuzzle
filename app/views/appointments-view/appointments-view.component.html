@@ -1,11 +1,12 @@
-<StackLayout>
-
+<StackLayout class="main-container" (swipe)="onSwipe($event)">
+    <StackLayout class="view-title">
+        <Label class="title" text="DOSTĘPNE OGŁOSZENIA"></Label>
+    </StackLayout>
     <ScrollView>
-        <StackLayout class="list">
-            <app-appointment-item *ngFor="let item of offerItems" [item]="item"></app-appointment-item>
+        <StackLayout class="list" >
+            <app-appointment-item *ngFor="let item of offerItems" [item]="item" [myOffer]="false"></app-appointment-item>
         </StackLayout>
     </ScrollView>
-
     <StackLayout class="ad-space">
         <Label text="Przestrzeń na twoją reklamę! Skontaktuj się z nami!" textWrap="true"></Label>
     </StackLayout>

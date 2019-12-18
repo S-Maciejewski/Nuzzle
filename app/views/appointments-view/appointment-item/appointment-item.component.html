@@ -1,13 +1,21 @@
-<StackLayout class="wrapper" (tap)="showAppointmentDetails(item)" *ngIf="item">
-    <StackLayout height="100%" class="m-15" backgroundColor="lightgray" loaded="containerLoaded">
+<StackLayout shadow="3" cornerRadius="15px" class="wrapper" (tap)="showAppointmentDetails(item)" *ngIf="item">
+    <StackLayout class="image-box" loaded="containerLoaded">
         <Image *ngIf="item.ImageURL && item.ImageURL != null" id="image" src="{{item.ImageURL}}" stretch="aspectFill">
         </Image>
     </StackLayout>
     <StackLayout class="description" orientation="vertical">
-        <Label class="title" text="{{item.Label}}"></Label>
-        <FlexBoxLayout orientation="horizontal" justifyContent="space-around" height="100%">
-            <Label class="details" text="{{item.Address}}"></Label>
-            <Label class="details" text="{{item.Price}}"></Label>
-        </FlexBoxLayout>
+        <StackLayout class="title-box">
+            <Label class="title" text="{{item.Label}}"></Label>
+        </StackLayout>
+        <Label class="details" text="{{item.PostDate.split(',')[0]}} - {{item.Type}}"></Label>
+        <DockLayout class="personal-info" stretchLastChild="true">
+            <StackLayout class="price-box" dock="right">
+                <Label class="price" text="{{item.Price}} zł"></Label>
+            </StackLayout>
+            <StackLayout class="info" orientation="vertical">
+                <Label class="name" text="{{item.Name}} {{item.Surname}}"></Label>
+                <Label class="address" text="{{item.Address}}"></Label>
+            </StackLayout>
+        </DockLayout>
     </StackLayout>
 </StackLayout>

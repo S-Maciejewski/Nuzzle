@@ -11,6 +11,7 @@ import { Page } from 'tns-core-modules/ui/page/page';
 })
 export class AppointmentItemComponent implements OnInit {
   @Input() item: OfferItem;
+  @Input() myOffer: boolean;
 
   constructor(
     private routerExtensions: RouterExtensions,
@@ -19,10 +20,13 @@ export class AppointmentItemComponent implements OnInit {
     this.page.actionBarHidden = true;
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.myOffer)
+  }
 
   showAppointmentDetails() {
     this.store.setTempStoreOfferItem(this.item);
+    this.store.setTempStoreMyOffer(this.myOffer);
     this.routerExtensions.navigateByUrl('/appointment-details');
   }
 }

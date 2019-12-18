@@ -1,19 +1,36 @@
-StackLayout {
-    display: flex;
-    flex-direction: column;
-    background-color: #e1f5fe;
-
-    .ad-space {
-        height: 20%;
-        width: 100%;
-        text-align: center;
-        word-wrap: normal;
-        vertical-align: middle;
-        background-color: #03a9f4;
+.main-container {
+  .view-title {
+    width: 100%;
+    height: 50;
+    background-color: #ffc107;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    border-bottom-color: #c79100;
+    .title {
+      text-align: center;
+      padding: 13;
+      font-size: 15;
+      font-weight: 500;
+      color: black;
     }
+  }
 
-    ScrollView {
-        width: 100%;
-        height: 80%;
-    }
+  display: flex;
+  flex-direction: column;
+  // background-color: #e1f5fe;
+  background-color: #1565c0;
+
+  .ad-space {
+    height: 20%;
+    width: 100%;
+    text-align: center;
+    word-wrap: normal;
+    vertical-align: middle;
+    background-color: #03a9f4;
+  }
+
+  ScrollView {
+    width: 100%;
+    height: 80%;
+  }
 }

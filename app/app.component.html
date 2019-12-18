@@ -8,8 +8,8 @@
                         <Image class="profile-pic" borderRadius="100%" src={{user.PhotoURL}}
                             *ngIf="user && user.PhotoURL && user.PhotoURL != null" stretch="aspectFill"></Image>
                         <Label class="user-name" *ngIf="user" text="{{user.Name}} {{user.Surname}}"></Label>
-                        <Button class="drawer-button" text="Edytuj profil" [nsRouterLink]="['/login-proxy']"></Button>   
-                    
+                        <Button class="drawer-button" text="Edytuj profil" (tap)="onEditProfileTap()"></Button>
+
                     </StackLayout>
                     <Button class="drawer-button" text="Oferty pracy" dock=top (tap)="onAppointmentsTap()"></Button>
                     <Button class="drawer-button" text="Moje ogłoszenia" dock=top

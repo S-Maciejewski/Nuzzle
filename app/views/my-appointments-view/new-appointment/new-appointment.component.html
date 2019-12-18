@@ -1,12 +1,7 @@
-<StackLayout>
-    <Label text="Dodaj nowe ogłoszenie"></Label>
-
-    <!-- <StackLayout *ngIf="types && addressesLabels">
-        <RadDataForm tkExampleTitle tkToggleNavButton [source]="offer" [metadata]="offerMetadata">
-        </RadDataForm>
-        <Button text="Wyślij ogłoszenie" (onTap)="commitOffer()"></Button>
-    </StackLayout> -->
-
+<StackLayout id="new-appointment" (swipe)="onSwipe($event)">
+    <StackLayout class="view-title">
+        <Label class="title" text="DODAJ NOWE OGŁOSZENIE"></Label>
+    </StackLayout>
     <StackLayout *ngIf="types && addressesLabels">
         <RadDataForm tkExampleTitle tkToggleNavButton [source]="offer1">
             <TKEntityProperty tkDataFormProperty name="Label" displayName="Tytuł" index="1"></TKEntityProperty>
@@ -20,7 +15,7 @@
             </TKEntityProperty>
         </RadDataForm>
 
-        <Button text="Dodaj adres" (onTap)="addAddress()" *ngIf="!showNewAddressForm"></Button>
+        <Button class="button" text="Dodaj adres" (onTap)="addAddress()" *ngIf="!showNewAddressForm"></Button>
 
         <StackLayout *ngIf="showNewAddressForm">
             <RadDataForm tkExampleTitle tkToggleNavButton [source]="addressForm">
@@ -29,10 +24,10 @@
                 <TKEntityProperty tkDataFormProperty name="LongitudePos" hidden="true"></TKEntityProperty>
                 <TKEntityProperty tkDataFormProperty name="LatitudePos" hidden="true"></TKEntityProperty>
             </RadDataForm>
-            <StackLayout orientation="horizontal">
-                <Button text="Potwierdź" (onTap)="confirmAddingAddress()" width="50%"></Button>
-                <Button text="Anuluj" (onTap)="addAddress()" width="50%"></Button>
-            </StackLayout>
+            <FlexBoxLayout orientation="horizontal" justifyContent="space-around">
+                <Button class="button" text="Potwierdź" (onTap)="confirmAddingAddress()" width="43%"></Button>
+                <Button class="button" text="Anuluj" (onTap)="addAddress()" width="43%"></Button>
+            </FlexBoxLayout>
         </StackLayout>        
 
         <RadDataForm tkExampleTitle tkToggleNavButton [source]="offer2">
@@ -45,6 +40,6 @@
                 <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
             </TKEntityProperty>
         </RadDataForm>
-        <Button text="Wyślij ogłoszenie" (onTap)="commitOffer()" [nsRouterLink]="['/my-appointments']"></Button>
+        <Button class="button" text="Wyślij ogłoszenie" (onTap)="commitOffer()" [nsRouterLink]="['/my-appointments']"></Button>
     </StackLayout>
 </StackLayout>

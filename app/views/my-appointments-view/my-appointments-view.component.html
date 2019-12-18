@@ -1,8 +1,14 @@
 <AbsoluteLayout>
-    <ScrollView width=100% height=100% (swipe)="onSwipe($event)">
-        <StackLayout>
-            <app-appointment-item *ngFor="let item of offerItems" [item]="item"></app-appointment-item>
+    <StackLayout id="my-appointments">
+        <StackLayout class="view-title">
+            <Label class="title" text="MOJE OGŁOSZENIA"></Label>
         </StackLayout>
-    </ScrollView>
-    <FAB (tap)="newAppointment()" text="+" rippleColor="greenyellow" class="fab-button" marginTop=80% marginLeft=70%></FAB>
+        <ScrollView (swipe)="onSwipe($event)">
+            <StackLayout>
+                <app-appointment-item *ngFor="let item of offerItems" [item]="item" [myOffer]="true"></app-appointment-item>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+    <FAB (tap)="newAppointment()" text="+" rippleColor="yellow" class="fab-button" marginTop=80% marginLeft=70%>
+    </FAB>
 </AbsoluteLayout>

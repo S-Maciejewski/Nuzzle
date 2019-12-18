@@ -5,7 +5,6 @@ export interface OfferItem {
     PostDate: string;
     Label: string;
     Description: string;
-    Price: number;
     OwnerID: number;
     LatitudePos: number;
     LongitudePos: number;

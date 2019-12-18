@@ -4,6 +4,8 @@ import { ApiService } from '../../../services/api.service';
 import { Page } from 'tns-core-modules/ui/page/page';
 import { Address } from '../../../interfaces/Address';
 import { Authorization } from '../../../interfaces/authentication';
+import { SwipeGestureEventData } from 'tns-core-modules/ui/gestures/gestures';
+import { DrawerService } from '../../../services/drawer.service';
 
 @Component({
   selector: 'app-new-appointment',
@@ -44,6 +46,7 @@ export class NewAppointmentComponent implements OnInit {
 
   constructor(
     private api: ApiService,
+    private drawerService: DrawerService,
     private page: Page) {
       this.page.actionBarHidden = true;
       api.getOfferTypes().subscribe((data: OfferTypes[]) => {
@@ -87,5 +90,11 @@ export class NewAppointmentComponent implements OnInit {
       }
     });
     console.log('ADD ADDRESS');
+  }
+
+  onSwipe(args: SwipeGestureEventData) {
+    if (args.direction === 1) {
+      this.drawerService.toggleDrawerState();
+    }
   }
 }

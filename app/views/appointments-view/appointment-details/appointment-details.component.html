@@ -1,12 +1,31 @@
-<ScrollView>
-    <StackLayout *ngIf="item">
-        <StackLayout *ngIf="item && item.ImageURL && item.ImageURL != null" class="header">
-            <Image class="image" src="{{item.ImageURL}}" stretch="aspectFill"></Image>
-            <Label text="{{item.Description}}"></Label>
+<StackLayout id="appointment-details" (swipe)="onSwipe($event)">
+    <ScrollView>
+        <StackLayout *ngIf="item">
+            <StackLayout class="image-box">
+                <Image *ngIf="item.ImageURL && item.ImageURL != null" class="image" src="{{item.ImageURL}}"
+                    stretch="aspectFill"></Image>
+            </StackLayout>
+            <StackLayout class="block">
+                <Label class="label" text="{{item.Label}}"></Label>
+            </StackLayout>
+            <StackLayout class="block">
+                <Label class="postDate" text="{{item.PostDate.split(',')[0]}} - {{item.Type}}"></Label>
+            </StackLayout>
+            <StackLayout class="block">
+                <Label class="name" text="{{item.Name}} {{item.Surname}}"></Label>
+                <Label class="address" text="{{item.Address}}"></Label>
+            </StackLayout>
+            <StackLayout class="block">
+                <Label class="description" text="{{item.Description}}"></Label>
+            </StackLayout>
+            <DockLayout class="block" stretchLastChild="true">
+                <StackLayout class="price-box" dock="right">
+                    <Label class="price-label" text="Cena"></Label>
+                    <Label class="price" text="{{item.Price}} zł"></Label>
+                </StackLayout>
+                <StackLayout></StackLayout>
+            </DockLayout>
         </StackLayout>
-        <StackLayout height="300" backgroundColor="yellow">
-            <Label text="Pozostałe detale - TODO wyciągnąć item (razem ze zdjęciem tu i w appointment item"></Label>
-        </StackLayout>
-        <Button text="Wynajmij" [nsRouterLink]="['/appointments']"></Button>
-    </StackLayout>
-</ScrollView>
+    </ScrollView>
+    <Button *ngIf="!myOffer" text="Zamów" [nsRouterLink]="['/selected-appointment']"></Button>
+</StackLayout>

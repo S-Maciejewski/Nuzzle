@@ -51,19 +51,23 @@ export class AppComponent implements AfterViewInit {
     this._changeDetectionRef.detectChanges();
   }
 
+  onEditProfileTap() {
+    this.drawer.toggleDrawerState();
+  }
+
   onAppointmentsTap() {
     this.drawer.toggleDrawerState();
-    this.routerExtensions.navigateByUrl('/appointments')
+    this.routerExtensions.navigateByUrl('/appointments');
   }
 
   onMyAppointmentsTap() {
     this.drawer.toggleDrawerState();
-    this.routerExtensions.navigateByUrl('/my-appointments')
+    this.routerExtensions.navigateByUrl('/my-appointments');
   }
 
   onMessagesTap() {
     this.drawer.toggleDrawerState();
-    this.routerExtensions.navigateByUrl('/messages')
+    // this.routerExtensions.navigateByUrl('/messages')
   }
 
   onLogout() {

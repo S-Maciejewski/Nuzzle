@@ -12,6 +12,7 @@ const keys = {
 export class StoreService {
   // Storing items should be implemented as rxjs Action -> Effect store if we proceed to production
   offerItem: OfferItem;
+  displayingMyOffer: boolean;
 
   constructor() {
   }
@@ -34,5 +35,13 @@ export class StoreService {
 
   getTempStoreOfferItem() {
     return this.offerItem;
+  }
+
+  setTempStoreMyOffer(item: boolean) {
+    this.displayingMyOffer = item;
+  }
+
+  getTempStoreMyOffer() {
+    return this.displayingMyOffer;
   }
 }
