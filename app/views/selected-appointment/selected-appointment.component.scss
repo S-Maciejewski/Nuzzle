@@ -1,0 +1,37 @@
+/* Add mobile styles for the component here.  */
+#selected-offer {
+  align-items: middle;
+  margin-top: 280;
+  width: 100%;
+
+  .congrats {
+    font-size: 30;
+    font-weight: 700;
+    text-align: center;
+  }
+  .info {
+    font-size: 20;
+    text-align: center;
+    margin-bottom: 40;
+  }
+  .phone-number-label {
+    font-size: 20;
+    text-align: center;
+  }
+  .phone-number {
+    font-size: 30;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30;
+  }
+  .button {
+    border-style: solid;
+    border-width: 4px;
+    border-color: #c79100;
+    border-radius: 25px;
+    background-color: #ffc107;
+    width: 90%;
+    height: 50;
+    margin-top: 40px;
+  }
+}

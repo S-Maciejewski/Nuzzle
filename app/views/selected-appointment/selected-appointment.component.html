@@ -1,0 +1,9 @@
+<StackLayout id="selected-offer" (swipe)="onSwipe($event)">
+    <StackLayout *ngIf="item">
+        <Label class="congrats" text="Gratulacje!"></Label>
+        <Label class="info" text="Wybrałeś ofertę dla siebie!"></Label>
+        <Label class="phone-number-label" text="Skontaktuj się z wystawcą:"></Label>
+        <Label class="phone-number" text="{{item.PhoneNumber}}"></Label>
+    </StackLayout>
+    <Button class="button" text="Powrót" [nsRouterLink]="['/main']"></Button>
+</StackLayout>
