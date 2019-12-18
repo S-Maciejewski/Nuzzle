@@ -1,12 +1,12 @@
-<StackLayout id="wrapper" (tap)="showAppointmentDetails(item)" *ngIf="item">
-    <StackLayout height="100%"  class="m-15" backgroundColor="lightgray" loaded="containerLoaded">
-        <Image *ngIf="item.ImageURL && item.ImageURL != null" id="image" src="{{item.ImageURL}}" stretch="aspectFill"></Image> 
+<StackLayout class="wrapper" (tap)="showAppointmentDetails(item)" *ngIf="item">
+    <StackLayout height="100%" class="m-15" backgroundColor="lightgray" loaded="containerLoaded">
+        <Image *ngIf="item.ImageURL && item.ImageURL != null" id="image" src="{{item.ImageURL}}" stretch="aspectFill">
+        </Image>
     </StackLayout>
-    <StackLayout id="description" orientation="vertical" backgroundColor="red">
-        <Label class="title" text="{{item.Label}}" backgroundColor="blue"></Label>
+    <StackLayout class="description" orientation="vertical">
+        <Label class="title" text="{{item.Label}}"></Label>
         <FlexBoxLayout orientation="horizontal" justifyContent="space-around" height="100%">
             <Label class="details" text="{{item.Address}}"></Label>
-            <Label class="details" text="{{item.Description}}"></Label>
             <Label class="details" text="{{item.Price}}"></Label>
         </FlexBoxLayout>
     </StackLayout>
