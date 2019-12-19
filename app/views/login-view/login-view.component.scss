@@ -1,4 +1,22 @@
 /* Add mobile styles for the component here.  */
-#loginButton {
-    height: 150px;
+
+#login-box {
+  align-items: middle;
+  margin-top: 280;
+  width: 100%;
+  padding: 10;
+  #loginButton {
+    border-style: solid;
+    border-width: 4px;
+    border-color: #c79100;
+    border-radius: 25px;
+    background-color: #ffc107;
+    width: 90%;
+    height: 50;
+    margin-top: 20;
+    margin-bottom: 25;
+  }
+  .error-label {
+    width: 90%;
+  }
 }
